@@ -1,23 +1,247 @@
+<!-- [PATH] face/index.html -->
 <!DOCTYPE html>
-<html lang="en">
-  <head>
-    <script src="https://cdn.jsdelivr.net/npm/p5@1.11.8/lib/p5.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/p5@1.11.8/lib/addons/p5.sound.min.js"></script>
-    <link rel="stylesheet" type="text/css" href="style.css">
-    <meta charset="utf-8" />
+<html lang="ko">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>My p5.js Portfolio - 자화상</title>
 
-  </head>
-  <body>
-      <h1>My p5.js Portfolio - 자화상</h1>
-      
-      <ul>
-        <li><a href="../">Home</a></li>
-        <li><a href="./case1/">자화상-1</a></li>
-        <li><a href="./case2/">자화상-2</a></li>
-      </ul>
-    
-    <main>
-    </main>
-    <script src="sketch.js"></script>
-  </body>
+  <!-- 기존 p5.js 라이브러리 유지 -->
+  <script src="https://cdn.jsdelivr.net/npm/p5@1.11.8/lib/p5.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/p5@1.11.8/lib/addons/p5.sound.min.js"></script>
+
+  <!-- 기존 style.css 연결 유지 -->
+  <link rel="stylesheet" type="text/css" href="style.css" />
+</head>
+<body>
+  <!-- 추가됨: 페이지 전체를 감싸는 포트폴리오 영역 -->
+  <div class="page">
+    <!-- 추가됨: 상단 이동 메뉴 -->
+    <nav class="top-nav">
+      <a href="../">← Home</a>
+      <a href="./case1/">자화상-1</a>
+      <a href="./case2/">자화상-2</a>
+    </nav>
+
+    <!-- 변경됨: 단순 제목을 소개형 hero 영역으로 변경 -->
+    <header class="hero">
+      <p class="badge">p5.js Self Portrait Project</p>
+      <h1>자화상 프로젝트</h1>
+      <p class="intro">
+        도형, 색상, 좌표를 사용해서 나만의 얼굴을 표현하는 p5.js 작품입니다.
+        아래 카드에서 다양한 버전의 자화상을 확인할 수 있습니다.
+      </p>
+    </header>
+
+    <!-- 추가됨: 현재 face 폴더의 sketch.js가 실행될 캔버스 영역 -->
+    <section class="canvas-section">
+      <div class="canvas-card">
+        <h2>대표 작품</h2>
+        <p>이 영역에는 face 폴더의 <strong>sketch.js</strong> 작품이 실행됩니다.</p>
+        <main id="sketch-holder"></main>
+      </div>
+    </section>
+
+    <!-- 변경됨: ul 목록을 카드형 메뉴로 변경 -->
+    <section class="project-grid">
+      <a class="project-card" href="./case1/">
+        <div class="emoji">😀</div>
+        <h2>자화상-1</h2>
+        <p>기본 도형으로 얼굴의 구조를 표현한 첫 번째 자화상입니다.</p>
+        <span>작품 보기 →</span>
+      </a>
+
+      <a class="project-card" href="./case2/">
+        <div class="emoji">😎</div>
+        <h2>자화상-2</h2>
+        <p>색상과 디테일을 추가해서 개성을 살린 두 번째 자화상입니다.</p>
+        <span>작품 보기 →</span>
+      </a>
+
+      <a class="project-card" href="../">
+        <div class="emoji">🏠</div>
+        <h2>메인으로</h2>
+        <p>전체 p5.js 포트폴리오 목록 페이지로 돌아갑니다.</p>
+        <span>Home →</span>
+      </a>
+    </section>
+  </div>
+
+  <!-- 기존 sketch.js 연결 유지 -->
+  <script src="sketch.js"></script>
+</body>
 </html>
+
+
+<!-- [PATH] face/style.css -->
+<style>
+/* 변경됨: 기본 페이지를 포트폴리오 느낌으로 디자인 */
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  font-family: Arial, sans-serif;
+  color: #ffffff;
+  background:
+    radial-gradient(circle at top left, rgba(255, 120, 180, 0.35), transparent 30%),
+    radial-gradient(circle at bottom right, rgba(80, 220, 255, 0.35), transparent 35%),
+    linear-gradient(135deg, #1f1c2c, #928dab);
+}
+
+/* 추가됨: 전체 너비와 여백 설정 */
+.page {
+  width: min(1100px, 92%);
+  margin: 0 auto;
+  padding: 32px 0 70px;
+}
+
+/* 추가됨: 상단 메뉴 */
+.top-nav {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin-bottom: 50px;
+}
+
+.top-nav a {
+  padding: 10px 16px;
+  border-radius: 999px;
+  color: #ffffff;
+  text-decoration: none;
+  background: rgba(255, 255, 255, 0.15);
+  border: 1px solid rgba(255, 255, 255, 0.25);
+  font-weight: bold;
+}
+
+.top-nav a:hover {
+  background: rgba(255, 255, 255, 0.28);
+}
+
+/* 추가됨: 제목 영역 */
+.hero {
+  text-align: center;
+  margin-bottom: 42px;
+}
+
+.badge {
+  display: inline-block;
+  padding: 8px 16px;
+  border-radius: 999px;
+  color: #ffe8ff;
+  background: rgba(255, 255, 255, 0.18);
+  font-weight: bold;
+}
+
+h1 {
+  margin: 20px 0 12px;
+  font-size: clamp(42px, 7vw, 78px);
+}
+
+.intro {
+  max-width: 720px;
+  margin: 0 auto;
+  color: #f1ecff;
+  font-size: 20px;
+  line-height: 1.7;
+}
+
+/* 추가됨: p5.js 캔버스가 들어갈 카드 */
+.canvas-section {
+  margin-bottom: 30px;
+}
+
+.canvas-card {
+  padding: 28px;
+  border-radius: 28px;
+  background: rgba(0, 0, 0, 0.25);
+  border: 1px solid rgba(255, 255, 255, 0.25);
+  box-shadow: 0 24px 50px rgba(0, 0, 0, 0.28);
+  text-align: center;
+}
+
+.canvas-card h2 {
+  margin-top: 0;
+  font-size: 30px;
+}
+
+.canvas-card p {
+  color: #f1ecff;
+}
+
+/* 추가됨: p5.js 캔버스를 가운데 정렬 */
+main,
+#sketch-holder {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 18px;
+}
+
+canvas {
+  border-radius: 20px;
+  box-shadow: 0 14px 35px rgba(0, 0, 0, 0.35);
+}
+
+/* 변경됨: 링크 목록을 카드형 메뉴로 변경 */
+.project-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 22px;
+}
+
+.project-card {
+  display: block;
+  padding: 26px;
+  border-radius: 24px;
+  color: #ffffff;
+  text-decoration: none;
+  background: rgba(255, 255, 255, 0.14);
+  border: 1px solid rgba(255, 255, 255, 0.25);
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.2);
+  transition: transform 0.2s ease, background 0.2s ease;
+}
+
+.project-card:hover {
+  transform: translateY(-8px);
+  background: rgba(255, 255, 255, 0.23);
+}
+
+.emoji {
+  font-size: 52px;
+}
+
+.project-card h2 {
+  margin: 16px 0 10px;
+  font-size: 27px;
+}
+
+.project-card p {
+  min-height: 70px;
+  color: #f1ecff;
+  line-height: 1.6;
+}
+
+.project-card span {
+  color: #fff4a3;
+  font-weight: bold;
+}
+
+/* 추가됨: 모바일 화면 대응 */
+@media (max-width: 600px) {
+  .page {
+    padding-top: 24px;
+  }
+
+  .intro {
+    font-size: 17px;
+  }
+
+  .canvas-card {
+    padding: 20px;
+  }
+}
+</style>
