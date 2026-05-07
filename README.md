@@ -8,7 +8,7 @@
 
 ## 🪄작품 목록
 
-### 👉 Site URL : https://mopark1004.github.io/p5.js/
+👉 Site URL : https://mopark1004.github.io/p5.js/
 
 ### 1회차 - 자화상 그리기
 👉 https://mopark1004.github.io/p5.js/face/
