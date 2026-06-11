@@ -1,25 +1,18 @@
-let x=100, y=200, d=50, dir=2;
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <script src="https://cdn.jsdelivr.net/npm/p5@1.11.13/lib/p5.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/p5@1.11.13/lib/addons/p5.sound.min.js"></script>
+    
+    
+    
+    <link rel="stylesheet" type="text/css" href="style.css">
+    <meta charset="utf-8" />
 
-function setup() {
-  createCanvas(400, 400);
-}
-
-function draw() {
-  background(220);
-  
-  ellipse(x, y, d);
-  
-  if(x > (width - d/2)) {
-    dir = dir * -1;
-  } else if (x < d/2 ) {
-    dir = dir * -1;         
-  }
-  
-  if (x < 200) {
-    fill(150, 255, 150);
-  } else {
-    fill (255, 0, 0);
-  }
-  
-  x += dir;
-}
+  </head>
+  <body>
+    <main>
+    </main>
+    <script src="sketch.js"></script>
+  </body>
+</html>
